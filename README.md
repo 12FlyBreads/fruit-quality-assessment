@@ -2,7 +2,7 @@
 
 **Fruit & Veg Quality** is an edge-AI application that uses computer vision to assess the freshness and ripeness of fruits and vegetables in real time — directly on low-power devices such as the **Raspberry Pi Zero 2W**.
 
-The project combines **TensorFlow Lite**, **Edge Impulse**, and **OpenCV** to enable efficient, on-device quality control — without cloud dependency or expensive hardware.
+The project combines **TensorFlow Lite** and **OpenCV** to enable efficient, on-device quality control — without cloud dependency or expensive hardware.
 
 ---
 
