@@ -5,7 +5,7 @@ echo "🍏 Setting up Fruit & Veg Quality environment"
 echo "=============================="
 
 # Define environment name
-VENV_DIR="~/fnvq-env"
+VENV_DIR=".fnvq-env"
 
 # Create virtual environment
 echo "📦 Creating virtual environment..."
@@ -22,7 +22,7 @@ pip install --upgrade pip
 # Install core dependencies
 echo "📥 Installing dependencies from requirements.txt..."
 pip install -r requirements.txt
-pip install tflite-runtime
+echo "✅ Dependencies installed."
 
 # Detect platform
 ARCH=$(uname -m)
@@ -33,9 +33,9 @@ echo "🔍 Device name: $DEVICE"
 
 echo "📥 Checking Installations..."
 
-pip list | grep -E "(numpy|pillow|opencv|picamera|tflite-runtime)"
-jupyter notebook --generate-config
+pip list
 
 echo "✅ Environment setup complete!"
 echo "To activate it later, run:"
 echo "source $VENV_DIR/bin/activate"
+echo "deactivate to exit the environment."

@@ -7,4 +7,5 @@ opencv-python
 jupyter
 jupyterlab
 notebook
-
+tflite-runtime
+ipykernel
