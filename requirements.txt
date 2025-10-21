@@ -9,3 +9,4 @@ jupyterlab
 notebook
 tflite-runtime
 ipykernel
+flask
