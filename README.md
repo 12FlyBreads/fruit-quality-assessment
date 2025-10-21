@@ -2,7 +2,7 @@
 
 **Fruit & Veg Quality** is an edge-AI application that uses computer vision to assess the freshness and ripeness of fruits and vegetables in real time — directly on low-power devices such as the **Raspberry Pi Zero 2W**.
 
-The project combines **TensorFlow Lite** and **OpenCV** to enable efficient, on-device quality control — without cloud dependency or expensive hardware.
+The project combines **TensorFlow Lite** and other libraries to enable efficient, on-device quality control — without cloud dependency or expensive hardware.
 
 Fruits and Vegetables available in this version: apple, banana, orange, mango, tomato.
 
@@ -12,8 +12,7 @@ Fruits and Vegetables available in this version: apple, banana, orange, mango, t
 - 🍎 **Real-time quality assessment** (unripe / fresh / rotten)  
 - ⚡ **Optimized for edge devices** (Raspberry Pi Zero 2W, Jetson Nano, etc.)  
 - 🧠 **Compact CNN model** based on MobileNetV2, quantized with TensorFlow Lite  
-- 🎥 **Camera-based detection** using OpenCV  
-- 🧰 **Fully offline**, no need for cloud connectivity  
+- 🎥 **Camera-based detection**
 - 🛠️ **Extensible pipeline** — retrain or replace the model via Edge Impulse  
 
 ---
@@ -73,6 +72,7 @@ cd fruit-veg-quality
 chmod +x setup.sh
 ./setup.sh
 ```
+Obs.: if you are getting errors during installation, try to install each library separately.
 ### 3. Run the application
 ```bash
 cd src
