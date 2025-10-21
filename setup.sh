@@ -33,7 +33,7 @@ echo "🔍 Device name: $DEVICE"
 
 # Checking installations
 echo "📥 Checking Installations..."
-pip list
+pip list | grep -E "(numpy|pillow|matplotlib|opencv|jupyter|tflite-runtime|flask)"
 
 echo "✅ Environment setup complete!"
 echo "To activate it later, run:"
