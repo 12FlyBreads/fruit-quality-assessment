@@ -22,6 +22,7 @@ pip install --upgrade pip
 # Install core dependencies
 echo "📥 Installing dependencies from requirements.txt..."
 pip install -r requirements.txt
+pip install tflite-runtime
 
 # Detect platform
 ARCH=$(uname -m)

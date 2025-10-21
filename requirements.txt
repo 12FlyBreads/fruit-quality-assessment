@@ -1,7 +1,10 @@
 # requirements.txt
 
-numpy pillow
+numpy
+pillow
 matplotlib
 opencv-python
-jupyter jupyterlab notebook
-tflite-runtime
+jupyter
+jupyterlab
+notebook
+
