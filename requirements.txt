@@ -1,6 +1,6 @@
 # requirements.txt
 
-numpy
+numpy==1.24.2
 pillow
 matplotlib
 opencv-python
