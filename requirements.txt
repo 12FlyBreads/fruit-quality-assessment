@@ -1,0 +1,6 @@
+# requirements.txt
+
+flask
+picamera2
+numpy
+Pillow
