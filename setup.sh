@@ -31,8 +31,8 @@ DEVICE=$(uname -n)
 echo "🔍 Detected architecture: $ARCH"
 echo "🔍 Device name: $DEVICE"
 
+# Checking installations
 echo "📥 Checking Installations..."
-
 pip list
 
 echo "✅ Environment setup complete!"
