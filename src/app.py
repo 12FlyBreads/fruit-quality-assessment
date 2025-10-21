@@ -69,7 +69,7 @@ def index():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Classificador de Frutas</title>
+        <title>Fruit and Vegetables Quality Classifier</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <style>
             body { font-family: Arial, sans-serif; margin: 20px; }
@@ -89,7 +89,7 @@ def index():
                 padding: 15px; 
                 background-color: #f4f4f4; 
                 border-radius: 8px; 
-                width: 610px; /* Alinha com a imagem */
+                width: 610px;
             }
             #results_container div {
                 font-size: 1.2em;
@@ -122,16 +122,13 @@ def index():
                 $.post('/update_confidence', {confidence: confidence});
             }
             
-            // Função que busca os resultados da classificação
             function updateClassificationResults() {
                 $.get('/get_classification', function(data) {
                     if (data.message) {
-                        // Se não estiver classificando
                         $('#classification_fruit').text(data.message);
                         $('#classification_quality').text('');
                         $('#fruit_info').text('');
                     } else if (data.fruit) {
-                        // Se estiver classificando
                         var fruit_text = `Fruta: ${data.fruit.label} (${(data.fruit.probability * 100).toFixed(1)}%)`;
                         var quality_text = `Qualidade: ${data.quality.label} (${(data.quality.probability * 100).toFixed(1)}%)`;
                         var info_text = `Info: ${data.info}`;
@@ -143,30 +140,29 @@ def index():
                 });
             }
             
-            // Inicia o polling quando o documento estiver pronto
             $(document).ready(function() {
-                setInterval(updateClassificationResults, 200); // Atualiza 5x por segundo
+                setInterval(updateClassificationResults, 200);
             });
         </script>
     </head>
     <body>
-        <h1>Classificador de Frutas e Qualidade</h1>
+        <h1>Fruit and Vegetables Quality Classifier</h1>
         <div id="video_container">
             <img src="{{ url_for('video_feed') }}" width="640" height="480" />
         </div>
         
         <div class="controls">
-            <button id="startBtn" onclick="startClassification()">Iniciar Classificação</button>
-            <button id="stopBtn" onclick="stopClassification()" disabled>Parar Classificação</button>
+            <button id="startBtn" onclick="startClassification()">Start Classification</button>
+            <button id="stopBtn" onclick="stopClassification()" disabled>Stop Classification</button>
         </div>
         
         <br>
-        <label for="confidence">Limiar de Confiança:</label>
+        <label for="confidence">Confidence Threshold:</label>
         <input type="number" id="confidence" name="confidence" min="0" max="1" step="0.05" value="0.7" onchange="updateConfidence()" />
         
         <hr>
         <div id="results_container">
-            <div id="classification_fruit">Aguardando início...</div>
+            <div id="classification_fruit">Waiting to start...</div>
             <div id="classification_quality"></div>
             <div id="fruit_info"></div>
         </div>
@@ -178,39 +174,34 @@ def index():
 
 @app.route('/video_feed')
 def video_feed():
-    """ Rota de streaming de vídeo. """
     return Response(camera.stream_generator(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/start', methods=['POST'])
 def start_classification():
-    """ Inicia o processo de classificação. """
     global is_classifying
     is_classifying = True
-    print("Classificação iniciada.")
+    print("Classification started.")
     return '', 204
 
 @app.route('/stop', methods=['POST'])
 def stop_classification():
-    """ Para o processo de classificação. """
     global is_classifying
     is_classifying = False
-    print("Classificação parada.")
+    print("Stopped classification.")
     return '', 204
 
 @app.route('/update_confidence', methods=['POST'])
 def update_confidence():
-    """ Atualiza o limiar de confiança. """
     global confidence_threshold
     confidence_threshold = float(request.form['confidence'])
-    print(f"Limiar de confiança atualizado para: {confidence_threshold}")
+    print(f"Confidence threshold updated to: {confidence_threshold}")
     return '', 204
 
 @app.route('/get_classification')
 def get_classification():
-    """ Rota de polling para obter o último resultado da classificação. """
     if not is_classifying:
-        return jsonify({'message': 'Classificação parada.'})
+        return jsonify({'message': 'Stopped classification.'})
     
     try:
         # Pega o último resultado da fila sem bloquear
@@ -218,19 +209,19 @@ def get_classification():
         return jsonify(result)
     except Queue.Empty:
         # Se a fila estiver vazia (processando)
-        return jsonify({'message': 'Processando...'})
+        return jsonify({'message': 'Processing...'})
 
 # --- Execução ---
 
 if __name__ == '__main__':
     try:
         threading.Thread(target=classification_worker, daemon=True).start()
-        
-        print("Servidor Flask iniciado em http://0.0.0.0:5000")
+
+        print("Flask server started at http://0.0.0.0:5000")
 
         app.run(host='0.0.0.0', port=5000, threaded=True)
         
     except KeyboardInterrupt:
-        print("Desligando...")
+        print("Stopping...")
     finally:
         camera.stop() 
