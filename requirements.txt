@@ -1,6 +1,7 @@
 # requirements.txt
 
-flask
-picamera2
-numpy
-Pillow
+numpy pillow
+matplotlib
+opencv-python
+jupyter jupyterlab notebook
+tflite-runtime
