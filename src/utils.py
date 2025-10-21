@@ -21,7 +21,7 @@ LABELS = [
     'rotten tomato',
     'unripe apple',
     'unripe banana',
-    'unripe carrot',
     'unripe mango',
+    'unripe orange',
     'unripe tomato'
 ]
