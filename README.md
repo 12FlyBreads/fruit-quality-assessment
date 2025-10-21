@@ -29,13 +29,32 @@ Camera Input → Preprocessing → TFLite Model → Quality Prediction → Displ
 
 ## 🏗️ Project Structure
 
+```bash
+.
+├── examples/ # Notebook examples
+│   └── fruit_classification_ex.ipynb
+├── images/ # Example images
+│   └── ...
+├── models/ # Classification models
+│   └── ...
+├── src/ # Main files and classes
+│   ├── app.py # Main application
+│   ├── camera.py # Camera class
+│   ├── classifier.py # Classifier class
+│   ├── fruit_info.py # Database of Fruits and Vegetables
+│   └── utils.py # Utils constants
+├── README.md
+├── requirements.txt # Requirements
+└── setup.sh # Bash script
+
+```
+
 ---
 
 ## 🧰 Requirements
 
 - Python 3.9+
 - Raspberry Pi Zero 2W (or any Linux ARM board)
-- TensorFlow Lite runtime
 - Camera module (Raspberry Pi v2 or USB camera)
 
 ---
@@ -47,17 +66,29 @@ Camera Input → Preprocessing → TFLite Model → Quality Prediction → Displ
 git clone https://github.com/12FlyBreads/fruit-quality-assessment.git
 cd fruit-veg-quality
 ```
-### 2. Install dependencies
+### 2. Run the bash script
 ```bash
-pip install -r requirements.txt
+chmod +x setup.sh
+./setup.sh
 ```
 ### 3. Run the application
 ```bash
-pithon3
+cd src
+pithon3 app.py
 ```
 
 ---
 
-## 🧑‍💻 Contributors
+## 👥 Authors
+
+- **Alex Alvarez Duque**
+  [GitHub](https://github.com/Alexduque14)
+- **Artur Simão**
+  [GitHub](https://github.com/12FlyBreads)
+- **Pedro Lucas Pereira Ferreira**
+  [GitHub](https://github.com/pedrolucas-pf)
+
+Credits to Prof. Marcelo Rovai
+  [GitHub](https://github.com/Mjrovai)
 
 ---
