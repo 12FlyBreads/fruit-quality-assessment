@@ -4,6 +4,8 @@
 
 The project combines **TensorFlow Lite** and **OpenCV** to enable efficient, on-device quality control — without cloud dependency or expensive hardware.
 
+Fruits and Vegetables available in this version: apple, banana, orange, mango, tomato.
+
 ---
 
 ## 🚀 Key Features
