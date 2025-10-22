@@ -5,7 +5,7 @@
 RESOLUTION = (640, 480)
 
 # model path
-MODEL_PATH = "../models/ei-fruit-detectorv3-classifier-tensorflow-lite-int8-quantized-model.6.lite"
+MODEL_PATH = "../models/ei-fruit-detectorv3-classifier-tensorflow-lite-int8-quantized-model.3.lite"
 
 # labels
 LABELS = [
