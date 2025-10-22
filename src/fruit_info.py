@@ -14,10 +14,10 @@ class FruitInfo:
                 'rotten': 'Shelf life: 0 days (discard immediately).',
                 'unriped': 'Shelf life: 2–3 days until ripe (room temperature).'
             },
-            'carrot': {
-                'fresh': 'Shelf life: 15–30 days (refrigerated).',
+            'tomato': {
+                'fresh': 'Shelf life: 7-14 days (refrigerated *after* fully ripe).',
                 'rotten': 'Shelf life: 0 days (discard immediately).',
-                'unriped': 'Shelf life: — (usually harvested ripe).'
+                'unripe': 'Shelf life: 2-7 days (store at room temperature to ripen).'
             },
             'orange': {
                 'fresh': 'Shelf life: 10–14 days (cool and dry place).',
